@@ -35,7 +35,7 @@ import { appRoutes } from './routes';
       RouterModule.forRoot(appRoutes)
    ],
    providers: [
-      //AuthService,
+      // AuthService,
       ErrorInterceptorProvider
    ],
    bootstrap: [
