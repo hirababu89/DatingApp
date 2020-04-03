@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-  @ViewChild('editForm') editForm: NgForm;
+  @ViewChild('editForm') editForm: NgForm; // , {static: true} v8
   user: User;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
@@ -32,8 +32,8 @@ export class MemberEditComponent implements OnInit {
 
   updateUser() {
     this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
-      this.alertify.success('Profile updates successfully');
-    this.editForm.reset(this.user);
+      this.alertify.success('Profile updated successfully');
+      this.editForm.reset(this.user);
     }, error => {
       this.alertify.error(error);
     });
