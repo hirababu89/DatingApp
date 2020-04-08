@@ -65,7 +65,6 @@ namespace DatingApp.API.Controllers
         {
             if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
             {
-                Console.WriteLine("Error");
                 return Unauthorized();
             }                
             
